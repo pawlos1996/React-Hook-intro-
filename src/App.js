@@ -1,15 +1,16 @@
 import './App.css';
 import { useState } from "react"
 import Counter from './Counter'; 
+import Cat from "./Cat"
 
 
 function App() {
 
-  
-    const [value, setchenger] = useState(true)
+    const [value, setchenger] = useState(0);
+    const [toggle, setToggel] = useState(true);
    
     const buttonCheng = () => { 
-     setchenger ((prev_value) => !prev_value);
+      setToggel ((prev_value) => !prev_value);
 
   }; 
 
@@ -17,11 +18,9 @@ function App() {
   return(
     <div className='App'>
        <button onClick={buttonCheng} >
-        Counter
-         {value ? " hedi " : " show "} 
-        </button>
-     { value && <Counter /> }
-      
+         {toggle ? " hedi " : " show "} Cat </button>  
+          {toggle && <Cat value={value} /> }
+       <button onClick={() => setchenger(10)}>click</button>
         </div>
    );
 }
